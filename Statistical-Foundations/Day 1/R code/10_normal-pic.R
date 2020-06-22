@@ -1,6 +1,8 @@
 library(tidyverse)
+x <- seq(-4,4, by=0.05)
+
 dframe <- data.frame(
-x = c(-1.65, seq(-4,4, by=0.05), 1.65),
+x = c(-1.65, x, 1.65),
 y = c(0, dnorm(x), 0),
 type = c("poly", rep("line", 161), "poly")
 )

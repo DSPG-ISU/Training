@@ -2,6 +2,7 @@ if (!require(classdata)) {
   devtools::install_github("heike/classdata")
 }
 
+
 library(classdata)
 library(tidyverse)
 
@@ -14,4 +15,6 @@ dframe <- happy16 %>%
 
 with(dframe, chisq.test(age60, happy))
 xtabs(data = dframe, ~happy+age60)
-happy16 %>% mutate(age45 = age<60) %>% ggplot() + geom_mosaic(aes(x = product(happy,  age45), weight=n))
+
+# visualize: install ggmosaic first
+#happy16 %>% mutate(age45 = age<60) %>% ggplot() + ggmosaic::geom_mosaic(aes(x = product(happy,  age45), weight=n))

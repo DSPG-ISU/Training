@@ -1,6 +1,6 @@
 library(discreteRV)
 
-library(help=discreteRV)
+#library(help=discreteRV)
 fair.coin <- RV(c("H", "T"), probs = 0.5)
 fair.coin <- RV(c("1", "0"), probs = 0.5)
 

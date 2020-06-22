@@ -15,5 +15,5 @@ table(attacks)/n
 
 
 set.seed(20200610)
-attacks <- rerun(n, attack3())
+attacks <- purrr::rerun(n, attack3())
 table(unlist(attacks))/n
