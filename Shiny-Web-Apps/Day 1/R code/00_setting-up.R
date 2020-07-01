@@ -36,3 +36,19 @@ if (!require(colourpicker)) {
   install.packages("colourpicker")
   library(colourpicker)
 }
+
+
+if (!require(leaflet)) {
+  install.packages("leaflet")
+  library(leaflet)
+}
+
+if (!require(leaflet.extras)) {
+  install.packages("leaflet.extras")
+  library(leaflet.extras)
+}
+
+if (!require(RColorBrewer)) {
+  install.packages("RColorBrewer")
+  library(RColorBrewer)
+}
