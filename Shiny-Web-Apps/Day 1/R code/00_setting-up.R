@@ -52,3 +52,18 @@ if (!require(RColorBrewer)) {
   install.packages("RColorBrewer")
   library(RColorBrewer)
 }
+
+if (!require(sf)) {
+  install.packages("sf")
+  library(sf)
+}
+
+if (!require(USAboundaries)) {
+  install.packages("USAboundaries")
+  library(USAboundaries)
+}
+
+if (!require(USAboundariesData)) {
+  devtools::install_github("ropensci/USAboundariesData")
+  library(USAboundariesData)
+}
