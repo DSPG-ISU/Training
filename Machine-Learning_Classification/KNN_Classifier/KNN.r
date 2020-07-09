@@ -60,6 +60,13 @@ library(class)
 wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test,
                       cl = wbcd_train_labels, k = 21)
 
+#To calculate accuracy
+ACC.21 <- sum(wbcd_test_labels == wbcd_test_pred)/NROW(wbcd_test_labels)  # For knn = 21
+
+#print Accuray score of knn(k=21)
+ACC.21
+
+
 ## Step 4: Evaluating model performance ----
 
 # load the "gmodels" library
@@ -85,9 +92,11 @@ wbcd_test <- wbcd_z[470:569, ]
 wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test,
                       cl = wbcd_train_labels, k = 21)
 
+
 # Create the cross tabulation of predicted vs. actual
 CrossTable(x = wbcd_test_labels, y = wbcd_test_pred,
            prop.chisq = FALSE)
+
 
 # try several different values of k
 wbcd_train <- wbcd_n[1:469, ]
