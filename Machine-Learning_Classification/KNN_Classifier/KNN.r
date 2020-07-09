@@ -1,10 +1,10 @@
-##### Chapter 3: Classification using Nearest Neighbors --------------------
+##### Classification using Nearest Neighbors --------------------
 
 ## Example: Classifying Cancer Samples ----
 ## Step 2: Exploring and preparing the data ---- 
 
 # import the CSV file
-wbcd <- read.csv("wisc_bc_data.csv", stringsAsFactors = FALSE)
+wbcd <- read.csv("Machine-Learning_Classification/KNN_Classifier/wisc_bc_data.csv", stringsAsFactors = FALSE)
 
 # examine the structure of the wbcd data frame
 str(wbcd)
@@ -19,7 +19,10 @@ table(wbcd$diagnosis)
 wbcd$diagnosis <- factor(wbcd$diagnosis, levels = c("B", "M"),
                          labels = c("Benign", "Malignant"))
 
+print(wbcd$diagnosis)
+
 # table or proportions with more informative labels
+# prop.table() Express Table Entries As Fraction Of Marginal Table
 round(prop.table(table(wbcd$diagnosis)) * 100, digits = 1)
 
 # summarize three numeric features
@@ -107,3 +110,4 @@ CrossTable(x = wbcd_test_labels, y = wbcd_test_pred, prop.chisq=FALSE)
 
 wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test, cl = wbcd_train_labels, k=27)
 CrossTable(x = wbcd_test_labels, y = wbcd_test_pred, prop.chisq=FALSE)
+accuracy(y_pred, y_true)

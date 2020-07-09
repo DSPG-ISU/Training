@@ -1,10 +1,10 @@
-##### Chapter 4: Classification using Naive Bayes --------------------
+##### Classification using Naive Bayes --------------------
 
 ## Example: Filtering spam SMS messages ----
 ## Step 2: Exploring and preparing the data ---- 
 
 # read the sms data into the sms data frame
-sms_raw <- read.csv("sms_spam.csv", stringsAsFactors = FALSE)
+sms_raw <- read.csv("Machine-Learning_Classification/Naive-Bayes_Classifier/sms_spam.csv", stringsAsFactors = FALSE)
 
 # examine the structure of the sms data
 str(sms_raw)
@@ -17,6 +17,9 @@ str(sms_raw$type)
 table(sms_raw$type)
 
 # build a corpus using the text mining (tm) package
+#require(devtools)
+#install_version("tm", version = "0.7-1", repos = "http://cran.us.r-project.org")
+#install.packages ("tm")
 library(tm)
 sms_corpus <- VCorpus(VectorSource(sms_raw$text))
 
