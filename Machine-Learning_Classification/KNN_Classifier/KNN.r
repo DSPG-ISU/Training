@@ -105,6 +105,11 @@ wbcd_test <- wbcd_n[470:569, ]
 wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test, cl = wbcd_train_labels, k=1)
 CrossTable(x = wbcd_test_labels, y = wbcd_test_pred, prop.chisq=FALSE)
 
+#To calculate accuracy. (add this to other k as well)
+ACC.1 <- sum(wbcd_test_labels == wbcd_test_pred)/NROW(wbcd_test_labels)  # For knn = 1
+ACC.1
+
+
 wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test, cl = wbcd_train_labels, k=5)
 CrossTable(x = wbcd_test_labels, y = wbcd_test_pred, prop.chisq=FALSE)
 
