@@ -17,9 +17,8 @@ str(sms_raw$type)
 table(sms_raw$type)
 
 # build a corpus using the text mining (tm) package
-#require(devtools)
-#install_version("tm", version = "0.7-1", repos = "http://cran.us.r-project.org")
-#install.packages ("tm")
+
+install.packages ("tm")
 library(tm)
 sms_corpus <- VCorpus(VectorSource(sms_raw$text))
 
@@ -46,6 +45,7 @@ removePunctuation("hello...world")
 replacePunctuation <- function(x) { gsub("[[:punct:]]+", " ", x) }
 replacePunctuation("hello...world")
 
+install.packages ("SnowballC")
 # illustration of word stemming
 library(SnowballC)
 wordStem(c("learn", "learned", "learning", "learns"))
@@ -96,6 +96,7 @@ sms_test_labels  <- sms_raw[4170:5559, ]$type
 prop.table(table(sms_train_labels))
 prop.table(table(sms_test_labels))
 
+install.packages ("wordcloud")
 # word cloud visualization
 library(wordcloud)
 wordcloud(sms_corpus_clean, min.freq = 50, random.order = FALSE)

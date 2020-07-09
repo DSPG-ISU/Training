@@ -110,4 +110,4 @@ CrossTable(x = wbcd_test_labels, y = wbcd_test_pred, prop.chisq=FALSE)
 
 wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test, cl = wbcd_train_labels, k=27)
 CrossTable(x = wbcd_test_labels, y = wbcd_test_pred, prop.chisq=FALSE)
-accuracy(y_pred, y_true)
+

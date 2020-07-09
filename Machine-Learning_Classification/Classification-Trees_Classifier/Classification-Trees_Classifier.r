@@ -1,4 +1,4 @@
-##### Chapter 5: Classification using Decision Trees and Rules -------------------
+##### Classification using Decision Trees and Rules -------------------
 
 #### Part 1: Decision Trees -------------------
 
@@ -12,6 +12,7 @@ curve(-x * log2(x) - (1 - x) * log2(1 - x),
 ## Example: Identifying Risky Bank Loans ----
 ## Step 2: Exploring and preparing the data ----
 credit <- read.csv("credit.csv")
+credit <- read.csv("Machine-Learning_Classification/Classification-Trees_Classifier/credit.csv")
 str(credit)
 
 # look at two characteristics of the applicant
@@ -42,6 +43,7 @@ prop.table(table(credit_test$default))
 
 ## Step 3: Training a model on the data ----
 # build the simplest decision tree
+install.packages ("C50")
 library(C50)
 credit_model <- C5.0(credit_train[-17], credit_train$default)
 
