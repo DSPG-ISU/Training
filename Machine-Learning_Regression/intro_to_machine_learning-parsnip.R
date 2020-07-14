@@ -41,7 +41,7 @@ price_vs_weight_tbl
 
 
 # Engineered Features from Model Description
-# - Feature Engineering: 101, Week 3 - Feature Engineering 
+# - using a separated Feature Engineering process (one-hot encoding)
 engineered_features_tbl <- read_csv("Machine-Learning_Regression/data/engineered_features.csv")
 
 engineered_features_tbl
@@ -71,9 +71,8 @@ split_obj <- rsample::initial_split(pricing_model_tbl,
 train_tbl <- split_obj %>% training() 
 test_tbl  <- split_obj %>% testing() 
 
-# 4.0 Machine Learning ----
-# - ML Algorithms: Business Analysis with R (101), Week 6 - Machine Learning
-# - Cross Validation & Grid Search: Data Science for Business with R (201), Week 5 - H2O AutoML
+# 4.0 Machine Learning Algorithms ----
+# This project have not covering Cross Validation & Grid Search yet.
 
 # 4.1 Linear Regression (No Engineered Features) ----
 ?linear_reg     # Step 1: Pick a parsnip algorithm, & Set key parameters
@@ -90,12 +89,10 @@ model_01_lm <- linear_reg("regression") %>%
 model_01_lm %>% predict(new_data = test_tbl)
 
 # Visualize Results
-# - Custom Functions: 101 Week 5
-# - Visualization: 101 Weeks 4 & 7
 model_01_lm %>% plot_predictions(new_data = test_tbl)
 
 # Calculate Performance
-# - Custom Functions with Tidy Eval: Covered in 201, Week 1
+# - Custom Functions with Tidy Eval
 model_01_lm %>% calc_metrics(new_data = test_tbl, truth = Price_num)
 
 
@@ -119,8 +116,6 @@ model_02_lm$fit %>%
 
 
 # 4.3 Decision Tree ----
-# - Parameters: 101, Week 6
-# - Cross Validation: 201, Week 5
 model_03_rpart <- decision_tree(
         mode = "regression", 
         cost_complexity = 0.001,
@@ -146,7 +141,6 @@ model_03_rpart$fit %>%
 
 # 4.4 XGBoost ----
 # - Parameters: 101, Week 6
-# - Cross Validation: 201, Week 5
 model_04_xgboost <- boost_tree(
         mode = "regression", 
         mtry = 30, 
@@ -173,4 +167,4 @@ model_04_xgboost$fit %>%
 # - Best Model - Linear Regression with Engineered Features, XGBoost 2nd
 # - Features 
 #   - "Hi-Mod", "Weight", "Model Base", "Category Road" seem to be globally important
-#   - What about locally? --> LIME 201, Week 7
+
