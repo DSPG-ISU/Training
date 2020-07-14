@@ -1,6 +1,6 @@
-# LEARNING LAB 05 ----
 # INTRODUCTION TO MACHINE LEARNING
 # Hands On with parsnip R Package
+# Large portion of this code is from: https://github.com/business-science/presentations/tree/master/2019_03_13_Learning_Lab_05_Intro_to_Machine_Learning
 
 # 1.0 Libraries ----
 
@@ -26,15 +26,15 @@ library(rpart.plot)
 library(xgboost)
 
 # Pull in functions
-source("scripts/plot_price_vs_weight.R")
-source("scripts/calc_metrics.R")
-source("scripts/plot_predictions.R")
+source("Machine-Learning_Regression/scripts/plot_price_vs_weight.R")
+source("Machine-Learning_Regression/scripts/calc_metrics.R")
+source("Machine-Learning_Regression/scripts/plot_predictions.R")
 
 # 2.0 Data Setup ----
 
 # Price, Model, Product Category, and Weight
 # - Web Scraped from https://www.cannondale.com/en/USA
-price_vs_weight_tbl <- read_csv("2019_03_13_Learning_Lab_05_Intro_to_Machine_Learning/data/price_vs_weight_tbl.csv") 
+price_vs_weight_tbl <- read_csv("Machine-Learning_Regression/data/price_vs_weight_tbl.csv") 
 
 price_vs_weight_tbl
 
@@ -42,7 +42,7 @@ price_vs_weight_tbl
 
 # Engineered Features from Model Description
 # - Feature Engineering: 101, Week 3 - Feature Engineering 
-engineered_features_tbl <- read_csv("2019_03_13_Learning_Lab_05_Intro_to_Machine_Learning/data/engineered_features.csv")
+engineered_features_tbl <- read_csv("Machine-Learning_Regression/data/engineered_features.csv")
 
 engineered_features_tbl
 
