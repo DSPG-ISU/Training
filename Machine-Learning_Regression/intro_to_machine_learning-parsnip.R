@@ -5,14 +5,9 @@
 # 1.0 Libraries ----
 
 #update R
-install.packages("installr")
-library(installr)
-
-updateR()
-
+install.packages(c("tidyverse", "tidyquant", "plotly", "parsnip","rsample", "yardstick","broom","rpart","rpart.plot","xgboost"))
 
 # Core packages
-install.packages("tidyverse")
 library(tidyverse)
 
 # Visualization
@@ -31,9 +26,9 @@ library(rpart.plot)
 library(xgboost)
 
 # Pull in functions
-source("2019_03_13_Learning_Lab_05_Intro_to_Machine_Learning/scripts/plot_price_vs_weight.R")
-source("2019_03_13_Learning_Lab_05_Intro_to_Machine_Learning/scripts/calc_metrics.R")
-source("2019_03_13_Learning_Lab_05_Intro_to_Machine_Learning/scripts/plot_predictions.R")
+source("scripts/plot_price_vs_weight.R")
+source("scripts/calc_metrics.R")
+source("scripts/plot_predictions.R")
 
 # 2.0 Data Setup ----
 
