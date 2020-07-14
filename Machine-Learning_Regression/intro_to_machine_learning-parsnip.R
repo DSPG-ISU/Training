@@ -51,7 +51,7 @@ engineered_features_tbl
 plot_price_vs_weight()
 
 # Join data, and remove Product Families with low counts
-# - Data Manipulation: 101, Week 2 - Data Manipulation
+# - Data Manipulation
 pricing_model_tbl <- price_vs_weight_tbl %>%
     left_join(engineered_features_tbl, by = "row_id") %>%
     filter(!(ProductFamily %in% c("Trail", "TT and TRI")))
@@ -61,7 +61,7 @@ pricing_model_tbl
 
 
 # 3.0 Data Split ----
-# - Splitting Data: Business Analysis with R (101), Week 6 - Machine Learning
+# - Splitting Data
 
 set.seed(1)
 split_obj <- rsample::initial_split(pricing_model_tbl, 
@@ -140,7 +140,6 @@ model_03_rpart$fit %>%
 
 
 # 4.4 XGBoost ----
-# - Parameters: 101, Week 6
 model_04_xgboost <- boost_tree(
         mode = "regression", 
         mtry = 30, 
