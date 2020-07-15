@@ -10,11 +10,14 @@
 # Let’s start by generating some random two-dimensional data with three clusters. Data in each cluster will come from a multivariate gaussian distribution, with different means for each cluster:
 
 #update R
-install.packages(c("tidymodels", "tidyr"))
+install.packages(c("tidymodels", "tidyr", "ggplot2","dplyr","purrr"))
 
 # Core packages
 library(tidymodels)
 library(tidyr)
+library(ggplot2)
+library(dplyr)
+library(purrr)
 
 # 2.0 Data Setup ----
 set.seed(27)
