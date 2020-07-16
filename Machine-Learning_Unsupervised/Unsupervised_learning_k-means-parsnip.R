@@ -22,6 +22,7 @@ library(purrr)
 # 2.0 Data Setup ----
 set.seed(27)
 
+# Tibbles are data frames, but they tweak some older behaviours to make life a little easier
 centers <- tibble(
   cluster = factor(1:3), 
   num_points = c(100, 150, 50),  # number points in each cluster
