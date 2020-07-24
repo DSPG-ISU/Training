@@ -41,7 +41,7 @@ plotdat <- counties %>%
 # range of numbers in the color palette
 scale_range <- c(0,max(plotdat$POPESTIMATE2019))
 # missing values are bright green, so we can see them and fix them :)
-pal <- colorNumeric("Red", scale_range, na.color = "#aaff56", reverse=FALSE)
+pal <- colorNumeric("Reds", scale_range, na.color = "#aaff56", reverse=FALSE)
 
 plotdat %>% 
   leaflet() %>%
