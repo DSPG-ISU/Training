@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Intro to R Lab</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Haley Jeppson" />
+    <link rel="stylesheet" href="x-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Intro to R Lab
+### Haley Jeppson
+
+---
+
+
+
+
+background-image: url(https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_first_then.png)
+background-size: 500px
+background-position: 15% 27%
+.pull-left[]
+.pull-right[
+## The R language
+
+- Learning a new language can be **hard**!  
+
+  - grammar, vocabulary
+
+- As a beginner, mistakes are common.
+
+- Learning to troubleshoot will make you a more self-sufficient R user.
+
+- Practice is the best way to learn how to avoid errors in R 
+]
+
+
+.footnote[
+Artwork by [Allison Horst](https://twitter.com/allison_horst?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+]
+???
+When you start coding in R you probably get a lot of errors, and trying to decipher an error can be a time-consuming task. 
+
+You might need to Google or maybe you asked for help to your friends/mentor and they find out you’ve forgot a closing bracket!.
+
+You might be frustrated and blame yourself when you make very basic mistakes, but this is something every one goes through.
+
+This is the beginner curse: to become better, you need to practice writing code. 
+
+This article will help you so you can troubleshoot your own error in better way.
+
+---
+## The troubleshooting process
+
+### &amp;emsp; (1) Try to debug
+
+### &amp;emsp; (2) Look for help  
+
+### &amp;emsp; (3) Ask for help  
+
+### &amp;emsp;&amp;emsp;  (a) Ask a team member  
+  
+### &amp;emsp;&amp;emsp;  (b) Post your question on slack
+
+
+---
+background-image: url(http://bryanavery.co.uk/wp-content/uploads/2018/11/hero-snapshot-debugger.png)
+background-size: 600px
+background-position: 100% 80%
+## Debugging
+
+#### Restart your R session
+
+#### When in doubt, upgrade
+
+- Your issue may be automatically solved by simply upgrading.
+
+#### Look for typos  
+
+- In Rstudio, a little red x will appear next to the line of code
+
+#### Check for common errors
+
+- Don't let the red font intimidate you!
+
+---
+
+.left-minus[
+&lt;img src="images/on-and-off.png" height="500px"/&gt;
+] 
+.right-plus[
+## Restart R often
+
+#### To restart:
+In RStudio, menu item *Session* &gt; *Restart R*
+
+Keyboard shortcut: `[Ctrl/Command] + Shift + F10`
+
+#### To say "re-run all the code up to HERE": 
+
+In an R script, use &lt;br /&gt;`[Ctrl/Command] + [Alt/Option] + B`
+
+In R markdown, use &lt;br /&gt;`[Ctrl/Command] + [Alt/Option] + P`
+
+If you run R from the shell, use `Ctrl+D` or `q()` to quit, then restart R.
+
+]
+---
+## Syntax Errors
+
+The most common errors: missing comma, parenthesis, misspelled charter, etc.
+
+   - R is case senesitive  
+   
+   - In Rstudio, a little red x will appear next to the line of code.
+
+&lt;br/&gt;
+Following a [code etiquette](http://style.tidyverse.org/) can help you keep these errors to a minimum.
+
+???
+Scanning your code for x’s before running it is always a good idea and it’s very convenient since you know exactly on which line you made a mistake. 
+
+---
+## Errors vs. warnings
+
+#### Errors = the code cannot execute 
+
+&amp;emsp; 3 parts to the error message:  
+
+&amp;emsp;&amp;emsp;&amp;emsp;  1. Error declaration
+
+&amp;emsp;&amp;emsp;&amp;emsp;  2. Error location
+
+&amp;emsp;&amp;emsp;&amp;emsp;  3. The problem the error caused
+
+#### Warnings = the code will run but not as you might expect
+
+&amp;emsp; 3 parts to the warning message:  
+
+&amp;emsp;&amp;emsp;&amp;emsp;  1. Warning declaration
+
+&amp;emsp;&amp;emsp;&amp;emsp;  2. The behaviour being warned about
+
+&amp;emsp;&amp;emsp;&amp;emsp;  3. The piece of code that caused the warning
+
+.footnote[
+Material summarised from [rexanalytics's blogpost](http://rex-analytics.com/decoding-error-messages-r/) on the topic
+]
+???
+The other way R reports errors is through messages in the console, which appear after you run code that is not quite right. 
+
+Although the error messages look scary (the red font and words like “fatal” sure give them a bad reputation), they are actually the second best option to no errors at all: R has identified there is a problem and from the message, you can figure out what it is and solve it!
+
+---
+## Common errors + solutions
+
+#### Error: `could not find function "..."`
+
+- Did you forget to load the package?  
+
+- Have you misspelled the function name?
+
+#### Error: `object not found`  
+
+- The particular object used in the code is empty.
+
+
+#### Data is not in the right format
+- May not result in an error message, but might lead to graphs/results that are wrong.
+
+
+---
+## Debugging functions
+
+.pull-left[
+- `traceback()`: determine where a given error is occuring
+  
+- `print()`, `cat()`, `str()`: output diagnostic information
+
+- `browser()`: open an interactive debugger before the error
+
+- `debug()`: automatically open a debugger at the start of a function call
+  
+- `trace()`: start a debugger at a location inside a function
+
+]
+.pull-right[
+![](https://imgs.xkcd.com/comics/fixing_problems.png)
+]
+
+
+---
+## Look for help
+
+#### Read the documentation 📖
+
+- If you want to know what a specific command is doing:  
+
+  - `?command`, `help(command)`, `help.search(command)`
+
+#### Google the error 🔍  
+
+- `Error in my_df$my_col: object of type closure is not subsettable`
+
+  - Remove the reference to your data and google away.
+
+#### Search smarter, not harder 🧠
+
+- Keyword search community.rstudio.com
+
+- Stackoverflow - [r] tag  
+
+- [Boolean searches](https://www.mcgill.ca/caps/files/caps/gcs2014_linkedinbooleansearchtips.pdf) on Google, GitHub, and/or StackOverflow with a few keywords.
+
+
+.footnote[
+Material summarised from [Sam Tyner's blogpost](https://sctyner.github.io/rhelp.html) on the topic
+]
+???
+1. Read the documentation:  
+
+Did you forget an argument? Does something have to be a character that is a factor? If a function is giving you a weird error, read the documentation! If you don’t have the patience, run the examples in the documentation line-by-line first, then try to apply it to your context. R folks get famously testy online when you ask a question that is answered in the help files or vignettes.
+
+2. Google the error:
+
+After reading the documentation, you should Google the error message. In your search, make sure you remove any object or function names that are unique to your environment. By using only the relevant words from the error message, you’re more likely to get a result on StackOverflow or GitHub where your problem has already been solved.
+
+3. Search smarter, not harder :
+
+Make your search smarter. Use boolean searches on Google, GitHub, and/or StackOverflow with a few keywords. For example, say you have a question about plot margins and ggplot2. You might try typing ggplot2 AND margins into Google, or [ggplot2] margin in StackOverflow. For GitHub, go to the ggplot2 issues and search for is:issue margin.
+---
+## Ask for help
+
+
+
+#### Phone a friend (or team member) ☎️ 
+
+
+- They may have already solved this issue and can help you
+
+#### Ask your question on slack 💬
+
+- Help us help you! Isolate what is happening, using as little information as possible (make a reprex)
+
+---
+## Asking a good question 
+
+**... is a learned and valuable skill!**
+
+&lt;br/&gt;
+
+Have a look at:
+
+- stackoverflow's [Asking a good question](http://stackoverflow.com/help/how-to-ask)
+
+- R's [Posting guidelines](https://www.r-project.org/posting-guide.html)
+
+.footnote[
+(Heike also posted these on slack)
+]
+
+???
+
+5. Make a “reprex” 🔁
+This step involves making the problem as small as possible, which is known as making a “minimally reproducible example” or a “reprex.” In making a reprex, you should isolate what is happening, using as little information as possible. So if it’s a ggplot question, for example, make a toy data frame with the minimum number of rows and columns to reproduce the behavior.
+
+
+---
+class: inverse2, center
+# Minimal reproducible example
+
+&lt;img src="images/help1.jpg" height="380px"/&gt;&lt;img src="images/help2.jpg" height="380px"/&gt;
+
+---
+## How to achieve reprex-cellence&lt;sup&gt;1&lt;/sup&gt;
+
+#### A minimal reproducible example consists of the following items:
+
+- a minimal dataset, necessary to reproduce the error
+
+- the minimal runnable code necessary to reproduce the error, which can be run on the given dataset.
+
+- the necessary information on the used packages, R version, and system it is run on.
+
+- in the case of random processes, a seed (set by `set.seed()`) for reproducibility
+
+.footnote[
+[1] Thanks to [Mara Averick](https://maraaverick.rbind.io/2018/06/reprexcellence/#fn1) for that portmanteau
+]
+
+---
+## Make a reprex in 2 steps
+
+#### 1. Make your code reproducible
+
+- Make sure you capture everything
+
+  - i.e., include any `library()` calls and create all necessary objects  
+
+- This can be done with the `reprex` package
+
+#### 2. Make it minimal
+
+- Strip away everything that is not directly related to your problem
+
+  - remove as many add-on packages in the example as possible 
+
+- Create a much smaller and simpler R object than the one you’re facing in real life and use `dput()` to generate the R code to recreate the data.
+
+  - consider replacing real data with simpler built-in datasets and see if the problem persists
+
+  
+#### The more irrelevant content, the slower/harder it is to figure out the root issue. 
+
+
+
+
+---
+class: inverse2
+## Resources
+
+[R Reference card](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
+
+[Rstudio cheatsheets](https://rstudio.com/resources/cheatsheets/)
+
+Heike Hofmann's [STAT 480 class](https://stat480-at-isu.github.io/schedule.html) at ISU
+
+Heike Hofmann's [STAT 585X class](https://stat585-at-isu.github.io/schedule.html) at ISU
+
+[What They Forgot to Teach You](https://whattheyforgot.org/index.html) by Jenny Bryan &amp; Jim Hester
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": false,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
